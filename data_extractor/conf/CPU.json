@@ -1,0 +1,119 @@
+{
+    "items": [
+        {
+            "commandGroups": [
+                "PointCommands"
+            ],
+            "name": "1",
+            "type": "Point"
+        },
+        {
+            "commandGroups": [
+                "SectionCommands"
+            ],
+            "name": "1НП",
+            "type": "Section"
+        },
+        {
+            "commandGroups": [
+                "TrackCommands"
+            ],
+            "name": "1П",
+            "type": "Track"
+        },
+        {
+            "commandGroups": [
+                "SectionCommands"
+            ],
+            "name": "1СП",
+            "type": "Section"
+        },
+        {
+            "commandGroups": [
+                "SectionCommands"
+            ],
+            "name": "1ЧП",
+            "type": "Section"
+        },
+        {
+            "commandGroups": [
+                "PointCommands_2"
+            ],
+            "name": "2",
+            "type": "Point"
+        },
+        {
+            "commandGroups": [
+                "TrackCommands"
+            ],
+            "name": "2П",
+            "type": "Track"
+        },
+        {
+            "commandGroups": [
+                "SectionCommands"
+            ],
+            "name": "2СП",
+            "type": "Section"
+        },
+        {
+            "name": "ДГАВФ",
+            "type": "Контроль нагрузки ДГА"
+        },
+        {
+            "name": "ДГАТ",
+            "type": "Контроль топлива ДГА"
+        },
+        {
+            "name": "ДГАФ",
+            "type": "Контроль включения ДГА"
+        },
+        {
+            "name": "ДДН",
+            "type": "DayNightSensor"
+        },
+        {
+            "commandGroups": [
+                "SignalCommands"
+            ],
+            "name": "Н",
+            "type": "Signal"
+        },
+        {
+            "commandGroups": [
+                "SignalCommands"
+            ],
+            "name": "Н1",
+            "type": "Signal"
+        },
+        {
+            "commandGroups": [
+                "SignalCommands"
+            ],
+            "name": "Н2",
+            "type": "Signal"
+        },
+        {
+            "commandGroups": [
+                "SignalCommands"
+            ],
+            "name": "Ч",
+            "type": "Signal"
+        },
+        {
+            "commandGroups": [
+                "SignalCommands"
+            ],
+            "name": "Ч1",
+            "type": "Signal"
+        },
+        {
+            "commandGroups": [
+                "SignalCommands"
+            ],
+            "name": "Ч2",
+            "type": "Signal"
+        }
+    ],
+    "name": "CPU"
+}

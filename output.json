@@ -1,0 +1,1568 @@
+[
+    {
+        "type": "DirectionArrow",
+        "objects": [
+            "1gp_1stage",
+            "1gp_2stage",
+            "2gp_1stage",
+            "2gp_2stage",
+            "2ЧГП",
+            "1ЧГП",
+            "Key1GP",
+            "Key2GP"
+        ],
+        "station": "Балашиха",
+        "variables": {
+            "CriticalCommand": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "NO_RESPONSIBLE_COMMAND",
+                    "description": "Ответственная команда отсутствует"
+                },
+                {
+                    "value": "RESPONSIBLE_COMMAND",
+                    "description": "Задана ответственная команда"
+                }
+            ],
+            "Blocking": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "NOT_BLOCK",
+                    "description": "Перегон не блокирован"
+                },
+                {
+                    "value": "BLOCK",
+                    "description": "Перегон блокирован"
+                }
+            ],
+            "SettingDirectionChangeCommands": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "NO_INFO",
+                    "description": "Команда отсутствует"
+                },
+                {
+                    "value": "OFF",
+                    "description": "Задана команда смены направления"
+                },
+                {
+                    "value": "BLINK",
+                    "description": "Задана команда вспомогательного приема"
+                },
+                {
+                    "value": "ON",
+                    "description": "Задана команда вспомогательного отправления"
+                }
+            ],
+            "KeyStaff": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "NO_INFO",
+                    "description": "Ключ-жезл - нет информации"
+                },
+                {
+                    "value": "OFF_NO_TRAIN",
+                    "description": "Ключ-жезл изъят. Отсутствие хозяйственного поезда на перегоне."
+                },
+                {
+                    "value": "IN",
+                    "description": "Ключ-жезл в замке"
+                },
+                {
+                    "value": "OFF_IS_TRAIN",
+                    "description": "Ключ-жезл изъят. Хозяйственный поезд на перегоне."
+                }
+            ],
+            "GreenArrow": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "NO_INFO",
+                    "description": "Направление АБ «отправление», нет информации входов"
+                },
+                {
+                    "value": "OFF",
+                    "description": "Отсутствует направление АБ «отправление»"
+                },
+                {
+                    "value": "BLINK",
+                    "description": "Направление АБ «отправление», дана команда согласия на смену направления"
+                },
+                {
+                    "value": "ON",
+                    "description": "Направление АБ «отправление»"
+                }
+            ],
+            "YellowArrow": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "NO_INFO",
+                    "description": "Направление АБ «приём», нет информации входов"
+                },
+                {
+                    "value": "OFF",
+                    "description": "Отсутствует направление АБ «приём»"
+                },
+                {
+                    "value": "BLINK",
+                    "description": "Направление АБ «приём», дана команда смены направления"
+                },
+                {
+                    "value": "ON",
+                    "description": "Направление АБ «приём»"
+                }
+            ],
+            "WhiteSquare": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "NO_INFO",
+                    "description": "Свободность перегона - нет информации"
+                },
+                {
+                    "value": "OFF",
+                    "description": "Белый квадрат - погашен"
+                },
+                {
+                    "value": "BLINK",
+                    "description": "Неисправность цепи вспомогательной смены направления"
+                },
+                {
+                    "value": "ON",
+                    "description": "Перегон свободен"
+                }
+            ],
+            "RedSquare": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "NO_INFO",
+                    "description": "Занятость перегона - нет информации"
+                },
+                {
+                    "value": "OFF",
+                    "description": "Красный квадрат - погашен"
+                },
+                {
+                    "value": "BLINK",
+                    "description": "Перегон свободен, на соседней станции открыт выходной светофор или изъят из замка ключ-жезл"
+                },
+                {
+                    "value": "ON",
+                    "description": "Перегон занят"
+                }
+            ],
+            "SecondArrivalDeparture": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "NO_INFO",
+                    "description": "Второй участок приближения (удаления) - нет информации"
+                },
+                {
+                    "value": "ON",
+                    "description": "Второйй участок приближения (удаления) занят"
+                },
+                {
+                    "value": "OFF",
+                    "description": "Второй участок приближения (удаления) свободен"
+                },
+                {
+                    "value": "HIDE",
+                    "description": "Второй участок приближения-удаления не отображается"
+                }
+            ],
+            "FirstArrivalDeparture": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "NO_INFO",
+                    "description": "Первый участок приближения (удаления) - нет информации"
+                },
+                {
+                    "value": "ON",
+                    "description": "Первый участок приближения (удаления) занят"
+                },
+                {
+                    "value": "OFF",
+                    "description": "Первый участок приближения (удаления) свободен"
+                }
+            ],
+            "HighSpeedMode": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "OFF",
+                    "description": "Выдержки времени нет для скоростного движения"
+                },
+                {
+                    "value": "ON",
+                    "description": "Установлена выдержка времени для скоростного движения"
+                }
+            ],
+            "FalseOccupied": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "OFF",
+                    "description": "Первый участок удаления свободен или выходной светофор на перегон закрыт"
+                },
+                {
+                    "value": "ON",
+                    "description": "Фиксация ложной занятости участка удаления в маршруте"
+                }
+            ],
+            "FirstArrivalDepartureBlocking": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "ON",
+                    "description": "Первый участок удаления блокирован"
+                },
+                {
+                    "value": "OFF",
+                    "description": "Первый участок удаления не блокирован"
+                }
+            ],
+            "SecondArrivalDepartureBlocking": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "ON",
+                    "description": "Второй участок удаления блокирован"
+                },
+                {
+                    "value": "OFF",
+                    "description": "Второй участок удаления не блокирован"
+                }
+            ],
+            "CableLineControl": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "NO_INFO",
+                    "description": "Кабельная линия - нет информации"
+                },
+                {
+                    "value": "CRASH",
+                    "description": "Кабельная линия - авария"
+                },
+                {
+                    "value": "FAULT",
+                    "description": "Кабельная линия - неисправна"
+                },
+                {
+                    "value": "OK",
+                    "description": "Кабельная линия - исправна"
+                }
+            ],
+            "S_R_R0": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "NO_APPROACH_OCCUPANCY",
+                    "description": "Нет занятия участков приближения"
+                },
+                {
+                    "value": "CODE_36",
+                    "description": "code 36"
+                },
+                {
+                    "value": "CODE_37",
+                    "description": "code 37"
+                },
+                {
+                    "value": "CODE_38",
+                    "description": "code 38"
+                }
+            ],
+            "FirstSection": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "FIRST_SECTION_FREE_OR_DEPARTURE",
+                    "description": "Первый участок приближения свободен или установлено направление на отправление"
+                },
+                {
+                    "value": "FIRST_SECTION_OCCUPIED_ARRIVAL",
+                    "description": "Занятие первого участка приближения прибывающим поездом"
+                }
+            ],
+            "SecondSection": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "SECOND_SECTION_FREE_OR_DEPARTURE",
+                    "description": "Второй участок приближения свободен или установлено направление на отправление"
+                },
+                {
+                    "value": "SECOND_SECTION_OCCUPIED_ARRIVAL",
+                    "description": "Занятие второго участка приближения прибывающим поездом"
+                }
+            ],
+            "ThirdSection": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "THIRD_SECTION_FREE_OR_DEPARTURE",
+                    "description": "Третий участок приближения свободен или установлено направление на отправление"
+                },
+                {
+                    "value": "THIRD_SECTION_OCCUPIED_ARRIVAL",
+                    "description": "Занятие третьего участка приближения прибывающим поездом"
+                }
+            ]
+        }
+    },
+    {
+        "type": "Signal",
+        "objects": [
+            "Н2А",
+            "Н3А",
+            "Н4А",
+            "НМ1",
+            "НМ1Б",
+            "НМ2",
+            "НМ2Б",
+            "НМ3",
+            "НМ4",
+            "НМ5",
+            "ЧМ1А",
+            "ЧМ1Б",
+            "ЧМ2А",
+            "ЧМ2Б",
+            "ЧМ3А",
+            "ЧМ4А"
+        ],
+        "station": "Балашиха",
+        "variables": {
+            "Status": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "NO_INFO",
+                    "description": "Нет информации от ОК"
+                },
+                {
+                    "value": "RED",
+                    "description": "Красный"
+                },
+                {
+                    "value": "TWO_YELLOW",
+                    "description": "Два желтых"
+                },
+                {
+                    "value": "YELLOW",
+                    "description": "Желтый"
+                },
+                {
+                    "value": "TWO_YELLOW_UPPER_FLASHING",
+                    "description": "Два желтых, из них верхний мигающий"
+                },
+                {
+                    "value": "GREEN",
+                    "description": "Зеленый"
+                },
+                {
+                    "value": "CALL_ON_RED",
+                    "description": "Пригласительный и красный"
+                },
+                {
+                    "value": "GREEN_YELLOW",
+                    "description": "Зеленый + желтый"
+                },
+                {
+                    "value": "YELLOW_FLASHING",
+                    "description": "Желтый мигающий"
+                },
+                {
+                    "value": "WHITE",
+                    "description": "Белый"
+                },
+                {
+                    "value": "WHITE_YELLOW",
+                    "description": "Белый + желтый"
+                },
+                {
+                    "value": "WHITE_YELLOW_FLASHING",
+                    "description": "Белый + желтый мигающий"
+                },
+                {
+                    "value": "GREEN_WHITE",
+                    "description": "Белый + зеленый"
+                },
+                {
+                    "value": "WHITE_TWO_YELLOW_UPPER_FLASHING",
+                    "description": "Два желтых, из них верхний мигающий огонь, белый"
+                },
+                {
+                    "value": "WHITE_YELLOW_FLASHING_2",
+                    "description": "Белый + желтый мигающий"
+                },
+                {
+                    "value": "CALL_ON_RED_FAULT",
+                    "description": "Пригласительный, неисправность красного"
+                },
+                {
+                    "value": "RED_CALL_ON_FAULT",
+                    "description": "Красный, неисправность пригласительного"
+                },
+                {
+                    "value": "DARK_RED_FAULT_CALL_ON_FAULT",
+                    "description": "Темный, неисправность пригласительного и красного"
+                },
+                {
+                    "value": "DARK_RED_FAULT",
+                    "description": "Светофор темный, неисправность красного"
+                },
+                {
+                    "value": "YELLOW_FLASH_FAULT",
+                    "description": "Желтый, неисправность мигания"
+                },
+                {
+                    "value": "YELLOW_YELLOW_OR_GREEN_FAULT",
+                    "description": "Желтый, неисправность желтого или зеленого"
+                },
+                {
+                    "value": "TWO_YELLOW_FLASH_FAULT",
+                    "description": "Два желтых, неисправность мигания"
+                },
+                {
+                    "value": "TWO_YELLOW_WHITE_FLASH_FAULT",
+                    "description": "Два желтых, белый, неисправность мигания"
+                },
+                {
+                    "value": "DARK_WHITE_FAULT",
+                    "description": "Светофор темный, неисправность белого"
+                },
+                {
+                    "value": "YELLOW_WHITE_GREEN_FAULT",
+                    "description": "Желтый + белый, неисправность зеленого"
+                },
+                {
+                    "value": "CALL_ON_FAULT",
+                    "description": "Неисправность пригласительного"
+                }
+            ],
+            "FilamentIntegrity": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "NOT_FAULTY_INTEGRITY",
+                    "description": "Отсутствие неисправности мигания и соответствия огней"
+                },
+                {
+                    "value": "FAULTY_INTEGRITY",
+                    "description": "Наличие неисправности мигания или соответствия огней"
+                },
+                {
+                    "value": "SHORT_CIRCUIT_INTEGRITY",
+                    "description": "Наличие короткого замыкания кабеля"
+                }
+            ],
+            "Blocking": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "SIGNAL_NOT_BLOCKED",
+                    "description": "Сигнал не блокирован"
+                },
+                {
+                    "value": "SIGNAL_BLOCKED",
+                    "description": "Сигнал блокирован"
+                }
+            ],
+            "RouteWithoutSignal": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "NO_ROUTE_WO_SIGNAL",
+                    "description": "Нет маршрута без открытия сигнала"
+                },
+                {
+                    "value": "ROUTE_WO_SIGNAL_SET",
+                    "description": "Установлен режим маршрута без открытия сигнала"
+                }
+            ],
+            "Fleeting": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "AUTO_OFF",
+                    "description": "Автодействие выключено"
+                },
+                {
+                    "value": "AUTO_ON",
+                    "description": "Автодействие включено"
+                }
+            ],
+            "CriticalCommand": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "CRITICAL_CMD_ABSENT",
+                    "description": "Ответственная команда отсутствует"
+                },
+                {
+                    "value": "CRITICAL_CMD_SET",
+                    "description": "Задана ответственная команда"
+                }
+            ],
+            "DelayOpenTimer": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "DELAY_OFF",
+                    "description": "Таймер задержки открытия выключен"
+                },
+                {
+                    "value": "DELAY_ON",
+                    "description": "Таймер задержки открытия включен"
+                }
+            ],
+            "TrapCancelRouteOccupiedApproaching": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "TRAP_CANCEL_ROUTE_RESET",
+                    "description": "Фиксация отмены маршрута при занятом участке приближения - снятие"
+                },
+                {
+                    "value": "TRAP_CANCEL_ROUTE_SET",
+                    "description": "Фиксация отмены маршрута при занятом участке приближения"
+                }
+            ],
+            "TrapOccupiedFirstRecessiveSection": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "TRAP_FIRST_SECTION_FREE",
+                    "description": "Нет занятости первого участка приближения-удаления при установке выходного маршрута"
+                },
+                {
+                    "value": "TRAP_FIRST_SECTION_OCCUPIED",
+                    "description": "Первый участок приближения-удаления занят при установки выходного маршрута"
+                }
+            ],
+            "White": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "NO_INVITING_INDICATION",
+                    "description": "нет пригласительно показания"
+                },
+                {
+                    "value": "TIMER_90_SEC",
+                    "description": "идет отсчет времени 90 сек"
+                },
+                {
+                    "value": "REPEAT_COMMAND_TIMER_GT_90",
+                    "description": "дана повторная команда, таймер > 90 сек"
+                }
+            ]
+        }
+    },
+    {
+        "type": "Point",
+        "objects": [
+            "1",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "16",
+            "18",
+            "1СБ",
+            "2",
+            "22",
+            "24",
+            "26",
+            "28",
+            "2СБ",
+            "3",
+            "30",
+            "32",
+            "34",
+            "36",
+            "38",
+            "4",
+            "40",
+            "42",
+            "44",
+            "46",
+            "48",
+            "4СБ",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9"
+        ],
+        "station": "Балашиха",
+        "variables": {
+            "Blocking": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "NOT_BLOCK",
+                    "description": "Не блокирована"
+                },
+                {
+                    "value": "BLOCK",
+                    "description": "Стрелка блокирована"
+                }
+            ],
+            "Position": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "SWITCH",
+                    "description": "Выполняется перевод стрелки"
+                },
+                {
+                    "value": "PLUS",
+                    "description": "Стрелка в плюсовом положении"
+                },
+                {
+                    "value": "MINUS",
+                    "description": "Стрелка в минусовом положении"
+                },
+                {
+                    "value": "LOST",
+                    "description": "Потеря контроля или недоход стрелки"
+                }
+            ],
+            "FlankLocking": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "NOT_LOCKED",
+                    "description": "Стрелка не замкнута в маршруте как охранная"
+                },
+                {
+                    "value": "LOCK",
+                    "description": "Стрелка замкнута в маршруте как охранная"
+                }
+            ],
+            "FlankProtection": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "PROTECTION",
+                    "description": "Охранность соблюдена"
+                },
+                {
+                    "value": "NOT_INSTALLED",
+                    "description": "Охранная стрелка для данной не установлена или негабаритность"
+                }
+            ],
+            "Autoreverse": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "NOT_NECESSARY",
+                    "description": "Не требуется перевод стрелки в охранное положение"
+                },
+                {
+                    "value": "ENABLED",
+                    "description": "Автовозврат включен, стрелка не в охранном положении"
+                },
+                {
+                    "value": "OFF",
+                    "description": "Автовозврат выключен, стрелка не в охранном положении"
+                }
+            ],
+            "CriticalCommand": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "NO_RESPONSIBLE_COMMAND",
+                    "description": "Ответственная команда отсутствует"
+                },
+                {
+                    "value": "RESPONSIBLE_COMMAND",
+                    "description": "Задана ответственная команда"
+                }
+            ],
+            "ControlInRoute": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "CONTROL",
+                    "description": "Стрелка в маршруте не замкнута или имеет контроль положения"
+                },
+                {
+                    "value": "LOST_CONTROL",
+                    "description": "Потеря контроля положения стрелки в установленном маршруте"
+                }
+            ],
+            "SpeedMode": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "SPEED_LOCK",
+                    "description": "Стрелка замкнута в режиме скоростного пропуска"
+                },
+                {
+                    "value": "NO_SPEED_LOCK",
+                    "description": "Стрелка не замкнута в режиме скоростного пропуска"
+                }
+            ],
+            "NeedForSwitch": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "STATE_0",
+                    "description": "Не требуется перевод стрелки"
+                },
+                {
+                    "value": "STATE_1",
+                    "description": "Необходимо перевести стрелку"
+                }
+            ],
+            "LostFlankProtection": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "STATE_0",
+                    "description": "Данная стрелка в маршруте не замкнута или охранная к ней имеет контроль положения"
+                },
+                {
+                    "value": "STATE_1",
+                    "description": "К данной стрелке в маршруте нарушена габаритность или охранность"
+                }
+            ],
+            "BlockedMiddleTrack": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "UNBLOCK_TIME_DELAY_IN_TRACK_MIDDLE",
+                    "description": "Выдержка времени для разблокировки стрелки в середине пути"
+                },
+                {
+                    "value": "BLOCK_IN_TRACK_MIDDLE",
+                    "description": "Заблокирована как стрелка в середине пути"
+                },
+                {
+                    "value": "NOT_BLOCK_IN_TRACK_MIDDLE",
+                    "description": "Не заблокирована как стрелка в середине пути"
+                }
+            ],
+            "ControlMaket": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "MAKET_NOT_USED",
+                    "description": "Не используется"
+                },
+                {
+                    "value": "MAKET_ACTIVATED_STRM",
+                    "description": "Активирована функция макета командой СТРМ"
+                },
+                {
+                    "value": "MAKET_ESTABLISHED_STMA",
+                    "description": "Стрелка установлена на макет командой СТМА"
+                },
+                {
+                    "value": "MAKET_ESTABLISHED_STMR",
+                    "description": "Стрелка на макете, разрешена установка маршрута командой СТМР"
+                },
+                {
+                    "value": "MAKET_NOT_ESTABLISHED",
+                    "description": "Макет не подключен"
+                }
+            ],
+            "PointCommutator": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "STATE_0",
+                    "description": "Стрелка в состоянии полного покоя"
+                },
+                {
+                    "value": "STATE_1",
+                    "description": "Стрелка в + маршрутом"
+                },
+                {
+                    "value": "STATE_2",
+                    "description": "Стрелка в - маршрутом"
+                },
+                {
+                    "value": "STATE_3",
+                    "description": "Стрелка в + командой"
+                },
+                {
+                    "value": "STATE_4",
+                    "description": "Стрелка в - командой"
+                }
+            ]
+        }
+    },
+    {
+        "type": "Signal_3_head",
+        "objects": [
+            "Н1А"
+        ],
+        "station": "Балашиха",
+        "variables": {
+            "Status": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "NO_INFO",
+                    "description": "Нет информации от ОК"
+                },
+                {
+                    "value": "RED",
+                    "description": "Красный"
+                },
+                {
+                    "value": "TWO_YELLOW",
+                    "description": "Два желтых"
+                },
+                {
+                    "value": "YELLOW",
+                    "description": "Желтый"
+                },
+                {
+                    "value": "TWO_YELLOW_UPPER_FLASHING",
+                    "description": "Два желтых, из них верхний мигающий"
+                },
+                {
+                    "value": "GREEN",
+                    "description": "Зеленый"
+                },
+                {
+                    "value": "CALL_ON_RED",
+                    "description": "Пригласительный и красный"
+                },
+                {
+                    "value": "TWO_YELLOW_WHITE",
+                    "description": "Два желтых + белый"
+                },
+                {
+                    "value": "YELLOW_FLASHING",
+                    "description": "Желтый мигающий"
+                },
+                {
+                    "value": "WHITE",
+                    "description": "Белый"
+                },
+                {
+                    "value": "WHITE_YELLOW",
+                    "description": "Белый + желтый"
+                },
+                {
+                    "value": "WHITE_YELLOW_FLASHING",
+                    "description": "Белый + желтый мигающий"
+                },
+                {
+                    "value": "GREEN_WHITE",
+                    "description": "Белый + зеленый"
+                },
+                {
+                    "value": "WHITE_TWO_YELLOW_UPPER_FLASHING",
+                    "description": "Два желтых, из них верхний мигающий огонь, белый"
+                },
+                {
+                    "value": "GREEN_YELLOW",
+                    "description": "Зеленый + желтый"
+                },
+                {
+                    "value": "CALL_ON_RED_FAULT",
+                    "description": "Пригласительный, неисправность красного"
+                },
+                {
+                    "value": "RED_CALL_ON_FAULT",
+                    "description": "Красный, неисправность пригласительного"
+                },
+                {
+                    "value": "DARK_RED_FAULT_CALL_ON_FAULT",
+                    "description": "Темный, неисправность пригласительного и красного"
+                },
+                {
+                    "value": "DARK_RED_FAULT",
+                    "description": "Светофор темный, неисправность красного"
+                },
+                {
+                    "value": "YELLOW_FLASH_FAULT",
+                    "description": "Желтый, неисправность мигания"
+                },
+                {
+                    "value": "YELLOW_YELLOW_OR_GREEN_FAULT",
+                    "description": "Желтый, неисправность желтого или зеленого"
+                },
+                {
+                    "value": "TWO_YELLOW_FLASH_FAULT",
+                    "description": "Два желтых, неисправность мигания"
+                },
+                {
+                    "value": "TWO_YELLOW_WHITE_FLASH_FAULT",
+                    "description": "Два желтых, белый, неисправность мигания"
+                },
+                {
+                    "value": "DARK_WHITE_FAULT",
+                    "description": "Светофор темный, неисправность белого"
+                },
+                {
+                    "value": "YELLOW_WHITE_GREEN_FAULT",
+                    "description": "Желтый + белый, неисправность зеленого"
+                },
+                {
+                    "value": "CALL_ON_FAULT",
+                    "description": "Неисправность пригласительного"
+                }
+            ],
+            "Blocking": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "NOT_BLOCKED",
+                    "description": "Сигнал не блокирован"
+                },
+                {
+                    "value": "BLOCKED",
+                    "description": "Сигнал блокирован"
+                }
+            ],
+            "RouteWithoutSignal": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "NO_ROUTE",
+                    "description": "Нет маршрута без открытия сигнала"
+                },
+                {
+                    "value": "ROUTE_SET",
+                    "description": "Установлен режим маршрута без открытия сигнала"
+                }
+            ],
+            "Fleeting": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "AUTO_OFF",
+                    "description": "Автодействие выключено"
+                },
+                {
+                    "value": "AUTO_ON",
+                    "description": "Автодействие включено"
+                }
+            ],
+            "CriticalCommand": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "NO_CRITICAL",
+                    "description": "Ответственная команда отсутствует"
+                },
+                {
+                    "value": "CRITICAL_SET",
+                    "description": "Задана ответственная команда"
+                }
+            ],
+            "DelayOpenTimer": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "TIMER_OFF",
+                    "description": "Таймер задержки открытия выключен"
+                },
+                {
+                    "value": "TIMER_ON",
+                    "description": "Таймер задержки открытия включен"
+                }
+            ],
+            "TrapToCancelRouteWithOccupiedApproaching": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "TRAP_CLEAR",
+                    "description": "Фиксация отмены маршрута при занятом участке приближения - снятие"
+                },
+                {
+                    "value": "TRAP_SET",
+                    "description": "Фиксация отмены маршрута при занятом участке приближения"
+                }
+            ],
+            "White": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "NO_CALL_ON",
+                    "description": "нет пригласительно показания"
+                },
+                {
+                    "value": "TIMER_90_SEC",
+                    "description": "идет отсчет времени 90 сек"
+                },
+                {
+                    "value": "REPEAT_COMMAND_TIMER_GT_90",
+                    "description": "дана повторная команда, таймер > 90 сек"
+                }
+            ],
+            "FALT": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "NO_FAULT",
+                    "description": "Отсутствие неисправности мигания и соответствия огней"
+                },
+                {
+                    "value": "FLASH_OR_MATCH_FAULT",
+                    "description": "Наличие неисправности мигания или соответствия огней"
+                },
+                {
+                    "value": "CABLE_SHORT",
+                    "description": "Наличие короткого замыкания кабеля"
+                }
+            ],
+            "EstablishingRoute": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "NO_ROUTE",
+                    "description": "От сигнала не устанавливается маршрут"
+                },
+                {
+                    "value": "SHUNTING_ROUTE",
+                    "description": "От сигнала устанавливается маневровый маршрут"
+                },
+                {
+                    "value": "TRAIN_ROUTE",
+                    "description": "От сигнала устанавливается поездной маршрут"
+                }
+            ],
+            "CancelRoute": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "NO_CANCEL_ROUTE",
+                    "description": "Нет отмены маршрута"
+                },
+                {
+                    "value": "CANCEL_ROUTE",
+                    "description": "Выполняется отмена маршрута от сигнала"
+                }
+            ]
+        }
+    },
+    {
+        "type": "Span",
+        "objects": [
+            "БУН-Ч1-Ч3",
+            "БУН-Ч15-Ч23",
+            "БУН-Ч16-Ч24",
+            "БУН-Ч2-Ч4",
+            "БУН-Ч5-Ч13",
+            "БУН-Ч6-Ч14",
+            "БУЧ-Ч10-Ч2",
+            "БУЧ-Ч19-Ч11",
+            "БУЧ-Ч20-Ч12",
+            "БУЧ-Ч23-Ч21",
+            "БУЧ-Ч24-Ч22",
+            "БУЧ-Ч9-Ч1"
+        ],
+        "station": "Балашиха",
+        "variables": {
+            "BlockSection": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "BS_NOT_BLOCK",
+                    "description": "Блок-участок не блокирован"
+                },
+                {
+                    "value": "BS_BLOCK",
+                    "description": "Блок-участок блокирован"
+                }
+            ],
+            "TrackCircuit1": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "TC_NO_INFO",
+                    "description": "Рельсовая цепь перегона - нет информации"
+                },
+                {
+                    "value": "TC_OCCUPIED",
+                    "description": "1-я рельсовая цепь перегона - занята"
+                },
+                {
+                    "value": "TC_FREE",
+                    "description": "1-я рельсовая цепь перегона - свободна"
+                }
+            ],
+            "TrackCircuit2": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "TC_NO_INFO",
+                    "description": "Рельсовая цепь перегона - нет информации"
+                },
+                {
+                    "value": "TC_OCCUPIED",
+                    "description": "2-я рельсовая цепь перегона - занята"
+                },
+                {
+                    "value": "TC_FREE",
+                    "description": "2-я рельсовая цепь перегона - свободна"
+                }
+            ],
+            "TrackCircuit3": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "TC_NO_INFO",
+                    "description": "Рельсовая цепь перегона - нет информации"
+                },
+                {
+                    "value": "TC_OCCUPIED",
+                    "description": "3-я рельсовая цепь перегона - занята"
+                },
+                {
+                    "value": "TC_FREE",
+                    "description": "3-я рельсовая цепь перегона - свободна"
+                }
+            ],
+            "TrackCircuit4": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "TC_NO_INFO",
+                    "description": "Рельсовая цепь перегона - нет информации"
+                },
+                {
+                    "value": "TC_OCCUPIED",
+                    "description": "4-я рельсовая цепь перегона - занята"
+                },
+                {
+                    "value": "TC_FREE",
+                    "description": "4-я рельсовая цепь перегона - свободна"
+                }
+            ],
+            "TrackCircuit5": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "TC_NO_INFO",
+                    "description": "Рельсовая цепь перегона - нет информации"
+                },
+                {
+                    "value": "TC_OCCUPIED",
+                    "description": "5-я рельсовая цепь перегона - занята"
+                },
+                {
+                    "value": "TC_FREE",
+                    "description": "5-я рельсовая цепь перегона - свободна"
+                }
+            ],
+            "BlockTrackCircuit1": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "TC_NOT_BLOCKED",
+                    "description": "1-я рельсовая цепь перегона - не блокирована"
+                },
+                {
+                    "value": "TC_BLOCKED",
+                    "description": "1-я рельсовая цепь перегона - блокирована"
+                }
+            ],
+            "BlockTrackCircuit2": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "TC_NOT_BLOCKED",
+                    "description": "2-я рельсовая цепь перегона - не блокирована"
+                },
+                {
+                    "value": "TC_BLOCKED",
+                    "description": "2-я рельсовая цепь перегона - блокирована"
+                }
+            ],
+            "BlockTrackCircuit3": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "TC_NOT_BLOCKED",
+                    "description": "3-я рельсовая цепь перегона - не блокирована"
+                },
+                {
+                    "value": "TC_BLOCKED",
+                    "description": "3-я рельсовая цепь перегона - блокирована"
+                }
+            ],
+            "BlockTrackCircuit4": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "TC_NOT_BLOCKED",
+                    "description": "4-я рельсовая цепь перегона - не блокирована"
+                },
+                {
+                    "value": "TC_BLOCKED",
+                    "description": "4-я рельсовая цепь перегона - блокирована"
+                }
+            ],
+            "BlockTrackCircuit5": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "TC_NOT_BLOCKED",
+                    "description": "5-я рельсовая цепь перегона - не блокирована"
+                },
+                {
+                    "value": "TC_BLOCKED",
+                    "description": "5-я рельсовая цепь перегона - блокирована"
+                }
+            ],
+            "TransmitterCode1": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "CODE_KJ",
+                    "description": "1-я рельсовая цепь перегона - включен код 'КЖ'"
+                },
+                {
+                    "value": "CODE_J",
+                    "description": "1-я рельсовая цепь перегона - включен код 'Ж'"
+                },
+                {
+                    "value": "CODE_Z",
+                    "description": "1-я рельсовая цепь перегона - включен код 'З'"
+                },
+                {
+                    "value": "CODE_PROTECT",
+                    "description": "1-я рельсовая цепь перегона - включен код 'Защитный код'"
+                }
+            ],
+            "TransmitterCode2": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "CODE_KJ",
+                    "description": "2-я рельсовая цепь перегона - включен код 'КЖ'"
+                },
+                {
+                    "value": "CODE_J",
+                    "description": "2-я рельсовая цепь перегона - включен код 'Ж'"
+                },
+                {
+                    "value": "CODE_Z",
+                    "description": "2-я рельсовая цепь перегона - включен код 'З'"
+                },
+                {
+                    "value": "CODE_PROTECT",
+                    "description": "2-я рельсовая цепь перегона - включен код 'Защитный код'"
+                }
+            ],
+            "TransmitterCode3": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "CODE_KJ",
+                    "description": "3-я рельсовая цепь перегона - включен код 'КЖ'"
+                },
+                {
+                    "value": "CODE_J",
+                    "description": "3-я рельсовая цепь перегона - включен код 'Ж'"
+                },
+                {
+                    "value": "CODE_Z",
+                    "description": "3-я рельсовая цепь перегона - включен код 'З'"
+                },
+                {
+                    "value": "CODE_PROTECT",
+                    "description": "3-я рельсовая цепь перегона - включен код 'Защитный код'"
+                }
+            ],
+            "TransmitterCode4": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "CODE_KJ",
+                    "description": "4-я рельсовая цепь перегона - включен код 'КЖ'"
+                },
+                {
+                    "value": "CODE_J",
+                    "description": "4-я рельсовая цепь перегона - включен код 'Ж'"
+                },
+                {
+                    "value": "CODE_Z",
+                    "description": "4-я рельсовая цепь перегона - включен код 'З'"
+                },
+                {
+                    "value": "CODE_PROTECT",
+                    "description": "4-я рельсовая цепь перегона - включен код 'Защитный код'"
+                }
+            ],
+            "CodeGen1": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "GEN_OFF",
+                    "description": "1-я рельсовая цепь перегона - выключена генерация кода"
+                },
+                {
+                    "value": "GEN_ON",
+                    "description": "1-я рельсовая цепь перегона - включена генерация кода"
+                }
+            ],
+            "CodeGen2": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "GEN_OFF",
+                    "description": "2-я рельсовая цепь перегона - выключена генерация кода"
+                },
+                {
+                    "value": "GEN_ON",
+                    "description": "2-я рельсовая цепь перегона - включена генерация кода"
+                }
+            ],
+            "CodeGen3": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "GEN_OFF",
+                    "description": "3-я рельсовая цепь перегона - выключена генерация кода"
+                },
+                {
+                    "value": "GEN_ON",
+                    "description": "3-я рельсовая цепь перегона - включена генерация кода"
+                }
+            ],
+            "CodeGen4": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "RESERVED",
+                    "description": "4-я рельсовая цепь перегона - зарезервировано"
+                },
+                {
+                    "value": "GEN_OFF",
+                    "description": "4-я рельсовая цепь перегона - выключена генерация кода"
+                },
+                {
+                    "value": "GEN_ON",
+                    "description": "4-я рельсовая цепь перегона - включена генерация кода"
+                },
+                {
+                    "value": "RESERVED2",
+                    "description": "4-я рельсовая цепь перегона - зарезервировано"
+                }
+            ],
+            "CodeGen5": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "RESERVED",
+                    "description": "5-я рельсовая цепь перегона - зарезервировано"
+                },
+                {
+                    "value": "GEN_OFF",
+                    "description": "5-я рельсовая цепь перегона - выключена генерация кода"
+                },
+                {
+                    "value": "GEN_ON",
+                    "description": "5-я рельсовая цепь перегона - включена генерация кода"
+                },
+                {
+                    "value": "RESERVED2",
+                    "description": "5-я рельсовая цепь перегона - зарезервировано"
+                }
+            ],
+            "SignalPoint": [
+                {
+                    "value": "UNDEF",
+                    "description": "Нет данных"
+                },
+                {
+                    "value": "SP_NO_INFO",
+                    "description": "Сигнальная точка-нет информации"
+                },
+                {
+                    "value": "SP_RED",
+                    "description": "Красный"
+                },
+                {
+                    "value": "SP_YELLOW",
+                    "description": "Жёлтый"
+                },
+                {
+                    "value": "SP_GREEN",
+                    "description": "Зеленый"
+                },
+                {
+                    "value": "SP_YELLOW_FLASHING",
+                    "description": "Жёлтый мигающий"
+                },
+                {
+                    "value": "SP_GREEN_AND_YELLOW",
+                    "description": "Зеленый + Жёлтый"
+                },
+                {
+                    "value": "SP_GREEN_FLASHING",
+                    "description": "Зеленый мигающий"
+                },
+                {
+                    "value": "SP_DARK",
+                    "description": "Темный"
+                }
+            ]
+        }
+    }
+]

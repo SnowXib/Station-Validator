@@ -1,0 +1,5 @@
+OBJECTS_COLLECTION = 'objects'
+BROKER_CONF_COLLECTION = 'broker_conf'
+TESTS_COLLECTION = 'tests'
+TESTS_RUN_COLLECTION = 'tests_run'
+OBJECTS_TEST_COLLECTION = 'object_test'
