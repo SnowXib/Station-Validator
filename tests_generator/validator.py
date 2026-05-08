@@ -1,11 +1,11 @@
 import jsonschema
-from jsonschema import ValidationError 
+from jsonschema import ValidationError
 
 
 def get_simple_test_schema() -> dict:
     """
     Схема дл простых тестов
-    
+
     :return: json схема
     :rtype: dict[Any, Any]
     """
@@ -15,18 +15,18 @@ def get_simple_test_schema() -> dict:
             "type": "object",
             "required": [
                 "id",
-                "station", 
-                "test_type", 
-                "type", 
-                "object_name", 
-                "variable", 
-                "value", 
+                "station",
+                "test_type",
+                "type",
+                "object_name",
+                "variable",
+                "value",
                 "description",
                 "time_start",
                 "info",
                 "test_interval",
                 "wait_seconds",
-                "result"
+                "result",
             ],
             "properties": {
                 "id": {"type": "string"},
@@ -43,17 +43,20 @@ def get_simple_test_schema() -> dict:
                 "info": {"type": "string"},
                 "test_interval": {"type": "number"},
                 "wait_seconds": {"type": "number"},
-                "result": {"type": "string", "enum": ["not_started", "passed", "failed", "error", "generated"]}
+                "result": {
+                    "type": "string",
+                    "enum": ["not_started", "passed", "failed", "error", "generated"],
+                },
             },
-            "additionalProperties": True
-        }
+            "additionalProperties": True,
+        },
     }
 
 
 def get_script_test_schema() -> dict:
     """
     Схема для скриптовых тестов
-    
+
     :return: json схема
     :rtype: dict[Any, Any]
     """
@@ -71,7 +74,7 @@ def get_script_test_schema() -> dict:
                 "info",
                 "test_interval",
                 "wait_seconds",
-                "result"
+                "result",
             ],
             "properties": {
                 "station": {"type": "string"},
@@ -90,7 +93,7 @@ def get_script_test_schema() -> dict:
                             "description",
                             "test_interval",
                             "wait_seconds",
-                            "time_start"
+                            "time_start",
                         ],
                         "properties": {
                             "object_name": {"type": "string"},
@@ -100,27 +103,37 @@ def get_script_test_schema() -> dict:
                             "description": {"type": "string"},
                             "test_interval": {"type": "number", "minimum": 0},
                             "wait_seconds": {"type": "number", "minimum": 0},
-                            "time_start": {"type": "string"}
+                            "time_start": {"type": "string"},
                         },
-                        "additionalProperties": False
-                    }
+                        "additionalProperties": False,
+                    },
                 },
                 "count_of_test": {"type": "integer", "minimum": 1},
                 "time_start": {"type": "string"},
                 "info": {"type": "string"},
                 "test_interval": {"type": "number", "minimum": 0},
                 "wait_seconds": {"type": "number", "minimum": 0},
-                "result": {"type": "string", "enum": ["not_started", "running", "completed", "failed", "error", "generated"]}
+                "result": {
+                    "type": "string",
+                    "enum": [
+                        "not_started",
+                        "running",
+                        "completed",
+                        "failed",
+                        "error",
+                        "generated",
+                    ],
+                },
             },
-            "additionalProperties": False
-        }
+            "additionalProperties": False,
+        },
     }
 
 
 def validate_json_schema(data, schema) -> tuple[bool, str]:
     """
     Валидатор простых тестов
-    
+
     :param data: Описание
     :type data: dict
     :param schema: Описание
@@ -133,6 +146,6 @@ def validate_json_schema(data, schema) -> tuple[bool, str]:
         return True, "JSON валиден"
     except ValidationError as e:
         return False, f"Ошибка валидации: {e.message}"
-        
+
     except Exception as e:
         return False, f"Непредвиденная ошибка: {str(e)}"

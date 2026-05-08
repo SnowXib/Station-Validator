@@ -1,5 +1,6 @@
 import sys
 import os
+
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from unittest.mock import patch, MagicMock
@@ -45,12 +46,10 @@ def test_single_object_with_all_fields(mock_get_aggregation_objects):
             "variables": {
                 "temperature": [
                     {"value": 25, "description": "Температура в градусах"},
-                    {"value": 30, "description": "Высокая температура"}
+                    {"value": 30, "description": "Высокая температура"},
                 ],
-                "humidity": [
-                    {"value": 60, "description": "Влажность"}
-                ]
-            }
+                "humidity": [{"value": 60, "description": "Влажность"}],
+            },
         }
     ]
     mock_get_aggregation_objects.return_value = objects
@@ -71,13 +70,7 @@ def test_single_object_with_all_fields(mock_get_aggregation_objects):
 def test_object_without_variables(mock_get_aggregation_objects):
     db = MagicMock()
     station = "StationA"
-    objects = [
-        {
-            "type": "actuator",
-            "objects": ["act1", "act2"],
-            "variables": {}
-        }
-    ]
+    objects = [{"type": "actuator", "objects": ["act1", "act2"], "variables": {}}]
     mock_get_aggregation_objects.return_value = objects
 
     result = get_objects(db, station)
@@ -93,11 +86,7 @@ def test_object_without_variables(mock_get_aggregation_objects):
 def test_object_without_objects_and_variables(mock_get_aggregation_objects):
     db = MagicMock()
     station = "StationA"
-    objects = [
-        {
-            "type": "unknown_type"
-        }
-    ]
+    objects = [{"type": "unknown_type"}]
     mock_get_aggregation_objects.return_value = objects
 
     result = get_objects(db, station)
@@ -117,21 +106,13 @@ def test_multiple_objects(mock_get_aggregation_objects):
         {
             "type": "sensor",
             "objects": ["s1"],
-            "variables": {
-                "temp": [
-                    {"value": 20, "description": "Температура"}
-                ]
-            }
+            "variables": {"temp": [{"value": 20, "description": "Температура"}]},
         },
         {
             "type": "actuator",
             "objects": ["a1", "a2"],
-            "variables": {
-                "state": [
-                    {"value": "on", "description": "Включен"}
-                ]
-            }
-        }
+            "variables": {"state": [{"value": "on", "description": "Включен"}]},
+        },
     ]
     mock_get_aggregation_objects.return_value = objects
 
@@ -147,15 +128,7 @@ def test_multiple_objects(mock_get_aggregation_objects):
 def test_variable_with_empty_values(mock_get_aggregation_objects):
     db = MagicMock()
     station = "StationA"
-    objects = [
-        {
-            "type": "sensor",
-            "objects": ["s1"],
-            "variables": {
-                "temp": []
-            }
-        }
-    ]
+    objects = [{"type": "sensor", "objects": ["s1"], "variables": {"temp": []}}]
     mock_get_aggregation_objects.return_value = objects
 
     result = get_objects(db, station)
@@ -169,17 +142,7 @@ def test_variable_with_empty_values(mock_get_aggregation_objects):
 def test_variable_without_value_and_description(mock_get_aggregation_objects):
     db = MagicMock()
     station = "StationA"
-    objects = [
-        {
-            "type": "sensor",
-            "objects": ["s1"],
-            "variables": {
-                "temp": [
-                    {}
-                ]
-            }
-        }
-    ]
+    objects = [{"type": "sensor", "objects": ["s1"], "variables": {"temp": [{}]}}]
     mock_get_aggregation_objects.return_value = objects
 
     result = get_objects(db, station)
@@ -196,11 +159,7 @@ def test_original_object_not_mutated(mock_get_aggregation_objects):
     original_obj = {
         "type": "sensor",
         "objects": ["s1"],
-        "variables": {
-            "temp": [
-                {"value": 20, "description": "Температура"}
-            ]
-        }
+        "variables": {"temp": [{"value": 20, "description": "Температура"}]},
     }
     objects = [original_obj]
     mock_get_aggregation_objects.return_value = objects

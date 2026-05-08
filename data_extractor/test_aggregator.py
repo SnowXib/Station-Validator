@@ -1,14 +1,19 @@
 import json
-import os, sys
+import os
+import sys
 import pytest
+
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from unittest.mock import mock_open, patch, call, MagicMock
+from unittest.mock import mock_open, call
 
 from data_extractor.extractor import (
-    parsing_objects, get_filenames, 
-    parsing_object, add_objects_into_type,
-    save_to_file, aggregation,
+    parsing_objects,
+    get_filenames,
+    parsing_object,
+    add_objects_into_type,
+    save_to_file,
+    aggregation,
 )
 
 
@@ -18,7 +23,7 @@ def test_parsing_objects_typical(tmp_path):
         "items": [
             {"name": "1", "type": "Point"},
             {"name": "1НП", "type": "Section"},
-            {"name": "ДДН", "type": "DayNightSensor"}
+            {"name": "ДДН", "type": "DayNightSensor"},
         ]
     }
     file_path = tmp_path / "objects.json"
@@ -28,7 +33,7 @@ def test_parsing_objects_typical(tmp_path):
     expected = [
         {"object": "1", "type": "Point"},
         {"object": "1НП", "type": "Section"},
-        {"object": "ДДН", "type": "DayNightSensor"}
+        {"object": "ДДН", "type": "DayNightSensor"},
     ]
     assert result == expected
 
@@ -51,7 +56,7 @@ def test_get_filenames_valid_extensions(tmp_path):
     expected = [
         str(tmp_path / "a.json"),
         str(tmp_path / "b.dm"),
-        str(tmp_path / "c.json")
+        str(tmp_path / "c.json"),
     ]
     assert sorted(result) == sorted(expected)
 
@@ -119,13 +124,13 @@ def test_parsing_object_typical(tmp_path):
         "variables": {
             "Status": [
                 {"value": "UNDEF", "description": "Нет данных"},
-                {"value": "RED", "description": "Красный"}
+                {"value": "RED", "description": "Красный"},
             ],
             "Blocking": [
                 {"value": "UNDEF", "description": "Нет данных"},
-                {"value": "SIGNAL_NOT_BLOCKED", "description": "Сигнал не блокирован"}
-            ]
-        }
+                {"value": "SIGNAL_NOT_BLOCKED", "description": "Сигнал не блокирован"},
+            ],
+        },
     }
     assert result == expected
 
@@ -145,30 +150,15 @@ def test_parsing_object_no_variables(tmp_path):
 def test_add_objects_into_type_matching():
     """Корректное добавление объектов в соответствующие типы."""
     objects_types = [
-        {
-            "type": "Point",
-            "objects": [],
-            "station": "",
-            "variables": {}
-        },
-        {
-            "type": "Section",
-            "objects": [],
-            "station": "",
-            "variables": {}
-        },
-        {
-            "type": "Signal",
-            "objects": [],
-            "station": "",
-            "variables": {}
-        }
+        {"type": "Point", "objects": [], "station": "", "variables": {}},
+        {"type": "Section", "objects": [], "station": "", "variables": {}},
+        {"type": "Signal", "objects": [], "station": "", "variables": {}},
     ]
     object_list = [
         {"object": "1", "type": "Point"},
         {"object": "2", "type": "Point"},
         {"object": "1НП", "type": "Section"},
-        {"object": "Н", "type": "Signal"}
+        {"object": "Н", "type": "Signal"},
     ]
 
     add_objects_into_type(objects_types, object_list, "TestStation")
@@ -202,7 +192,7 @@ def test_save_to_file(mocker):
         test_data,
         mock_open_obj.return_value.__enter__.return_value,
         ensure_ascii=False,
-        indent=4
+        indent=4,
     )
 
 
@@ -211,18 +201,22 @@ def test_aggregation_happy_path(mocker):
     mock_parsing_objects = mocker.patch("data_extractor.extractor.parsing_objects")
     mock_get_filenames = mocker.patch("data_extractor.extractor.get_filenames")
     mock_parsing_object = mocker.patch("data_extractor.extractor.parsing_object")
-    mock_add_objects_into_type = mocker.patch("data_extractor.extractor.add_objects_into_type")
+    mock_add_objects_into_type = mocker.patch(
+        "data_extractor.extractor.add_objects_into_type"
+    )
     mock_save_to_file = mocker.patch("data_extractor.extractor.save_to_file")
-    mock_send_aggregating = mocker.patch("data_extractor.extractor.send_aggregating_objects")
+    mock_send_aggregating = mocker.patch(
+        "data_extractor.extractor.send_aggregating_objects"
+    )
 
     mock_parsing_objects.return_value = [
         {"object": "1", "type": "Point"},
-        {"object": "Н", "type": "Signal"}
+        {"object": "Н", "type": "Signal"},
     ]
     mock_get_filenames.return_value = ["path/Point.json", "path/Signal.json"]
     mock_parsing_object.side_effect = [
         {"type": "Point", "objects": [], "station": "", "variables": {}},
-        {"type": "Signal", "objects": [], "station": "", "variables": {}}
+        {"type": "Signal", "objects": [], "station": "", "variables": {}},
     ]
 
     mock_client = mocker.MagicMock()
@@ -232,29 +226,44 @@ def test_aggregation_happy_path(mocker):
 
     mock_parsing_objects.assert_called_once_with("objects.json")
     mock_get_filenames.assert_called_once_with("types_dir")
-    assert mock_parsing_object.call_args_list == [call("path/Point.json"), call("path/Signal.json")]
+    assert mock_parsing_object.call_args_list == [
+        call("path/Point.json"),
+        call("path/Signal.json"),
+    ]
     mock_add_objects_into_type.assert_called_once_with(
         [
             {"type": "Point", "objects": [], "station": "", "variables": {}},
-            {"type": "Signal", "objects": [], "station": "", "variables": {}}
+            {"type": "Signal", "objects": [], "station": "", "variables": {}},
         ],
         mock_parsing_objects.return_value,
-        "CentralStation"
+        "CentralStation",
     )
-    mock_save_to_file.assert_called_once_with(mock_add_objects_into_type.call_args[0][0])
-    mock_send_aggregating.assert_called_once_with(mock_add_objects_into_type.call_args[0][0], mock_db)
+    mock_save_to_file.assert_called_once_with(
+        mock_add_objects_into_type.call_args[0][0]
+    )
+    mock_send_aggregating.assert_called_once_with(
+        mock_add_objects_into_type.call_args[0][0], mock_db
+    )
 
 
 def test_aggregation_empty_lists(mocker):
-    mock_parsing_objects = mocker.patch("data_extractor.extractor.parsing_objects", return_value=[])
-    mock_get_filenames = mocker.patch("data_extractor.extractor.get_filenames", return_value=[])
+    mock_parsing_objects = mocker.patch(
+        "data_extractor.extractor.parsing_objects", return_value=[]
+    )
+    mock_get_filenames = mocker.patch(
+        "data_extractor.extractor.get_filenames", return_value=[]
+    )
     mock_parsing_object = mocker.patch("data_extractor.extractor.parsing_object")
-    mock_add_objects_into_type = mocker.patch("data_extractor.extractor.add_objects_into_type")
+    mock_add_objects_into_type = mocker.patch(
+        "data_extractor.extractor.add_objects_into_type"
+    )
     mock_save_to_file = mocker.patch("data_extractor.extractor.save_to_file")
-    mock_send_aggregating = mocker.patch("data_extractor.extractor.send_aggregating_objects")
-    
+    mock_send_aggregating = mocker.patch(
+        "data_extractor.extractor.send_aggregating_objects"
+    )
+
     aggregation("conf", "dir", "EmptyStation", "db")
-    
+
     mock_parsing_objects.assert_called_once_with("conf")
     mock_get_filenames.assert_called_once_with("dir")
     mock_parsing_object.assert_not_called()
