@@ -4,6 +4,7 @@ __pycache__/
 *.pyo
 *.pyd
 station_validator/data_extractor/conf/CPU_balashiha.json
+output.json
 
 # Logs
 logs
