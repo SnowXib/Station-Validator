@@ -1,0 +1,8 @@
+[flake8]
+max-line-length = 120
+extend-ignore = E402
+exclude = .git,__pycache__,__init__.py,.venv,s-venv,venv,node_modules
+per-file-ignores =
+    db/mongoDB/db_methods.py:F811
+    api/app.py:F811,F841
+    data_extractor/test_aggregator.py:F841
