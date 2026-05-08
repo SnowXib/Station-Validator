@@ -1,0 +1,146 @@
+name: Station Validator CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  # Уровень 0 – линтер
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install flake8
+      - name: Run flake8
+        run: flake8 station_validator --count --max-complexity=10 --statistics
+
+  # Уровень 1 – тесты методов БД
+  test-db-methods:
+    needs: lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Run DB method tests
+        run: python -m pytest station_validator/db/mongoDB/test_db_methods.py -v
+
+  # Уровень 2.1 – data_extractor/test_aggregator.py
+  test-data-extractor-aggregator:
+    needs: test-db-methods
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Run data extractor aggregator tests
+        run: python -m pytest station_validator/data_extractor/test_aggregator.py -v
+
+  # Уровень 2.2 – station_test_server/test_tests_sender.py
+  test-tests-sender:
+    needs: test-db-methods
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Run tests sender tests
+        run: python -m pytest station_validator/station_test_server/test_tests_sender.py -v
+
+  # Уровень 2.3 – tests_generator/test_agregator.py
+  test-tests-generator-agregator:
+    needs: test-db-methods
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Run test generator aggregator tests
+        run: python -m pytest station_validator/tests_generator/test_agregator.py -v
+
+  # Уровень 3.1 – data_extractor/test_core.py (ждёт 2.1)
+  test-data-extractor-core:
+    needs: test-data-extractor-aggregator
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Run data extractor core tests
+        run: python -m pytest station_validator/data_extractor/test_core.py -v
+
+  # Уровень 3.2 – tests_generator/test_main.py (ждёт 2.3)
+  test-tests-generator-main:
+    needs: test-tests-generator-agregator
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Run test generator main tests
+        run: python -m pytest station_validator/tests_generator/test_main.py -v
+
+  # Уровень 4 – test_run.py (ждёт 2.2, 3.1, 3.2)
+  test-run-pipeline:
+    needs:
+      - test-tests-sender
+      - test-data-extractor-core
+      - test-tests-generator-main
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Run pipeline tests
+        run: python -m pytest station_validator/station_test_server/test_run.py -v
