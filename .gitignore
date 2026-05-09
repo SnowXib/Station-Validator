@@ -3,9 +3,10 @@ __pycache__/
 *.pyc
 *.pyo
 *.pyd
-station_validator/data_extractor/conf/CPU_balashiha.json
+data_extractor/conf/CPU_balashiha.json
+*.dm
 output.json
-.DS_Store
+*.DS_Store
 
 # Logs
 logs
