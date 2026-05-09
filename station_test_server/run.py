@@ -42,7 +42,6 @@ def pipeline():
     )
     client = mqtt.Client(client_id=MQTT_CLIENT_ID)
     client.username_pw_set(MQTT_USER, MQTT_PASSWORD)
-
     client.connect(MQTT_BROKER, MQTT_PORT, 60)
 
     app = core(OBJECTS_PATH, OBJECT_TYPES_PATH, STATION_NAME, db, broker)

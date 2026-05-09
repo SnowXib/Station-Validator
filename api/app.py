@@ -77,7 +77,7 @@ def get_objects(station, limit=0, db=Depends(get_db)):
 
 
 @app.post("/api/generate_simple_tests_case")
-def generate_tests_case(station, test_run_id="TEST", count=1, db=Depends(get_db)):
+def generate_simple_tests_case(station, test_run_id="TEST", count=1, db=Depends(get_db)):
     """
     Создание тестов на станции
 
@@ -97,7 +97,7 @@ def generate_tests_case(station, test_run_id="TEST", count=1, db=Depends(get_db)
 
 
 @app.post("/api/generate_script_tests_case")
-def generate_tests_case(station, test_run_id="TEST", count=1, db=Depends(get_db)):
+def generate_script_tests_case(station, test_run_id="TEST", count=1, db=Depends(get_db)):
 
     objects = get_aggregation_objects(db, station)
     tests = [
@@ -125,7 +125,7 @@ def get_tests_case(station, object_name=None, count=1, db=Depends(get_db)):
 
 
 @app.get("/api/get_test_by_id")
-def get_tests_case(id_test, db=Depends(get_db)):
+def get_test_by_id_api(id_test, db=Depends(get_db)):
     """
     Получить тесты
 
@@ -311,7 +311,7 @@ def test_run(id_test, db=Depends(get_db)):
     test = get_test_by_id(db, id_test)
     if test is not None:
         test = run_test(test)
-        update_tests_results(test)
+        update_tests_results(test, db)
         return JSONResponse(content=test["result"], status_code=200)
 
     return JSONResponse(content={}, status_code=404)

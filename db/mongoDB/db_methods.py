@@ -58,11 +58,6 @@ def update_tests_results(test, db):
     collection.update_one(filter_query, update_data)
 
 
-def get_test_by_id(db, id_test=None):
-    collection = db[TESTS_COLLECTION]
-    return collection.find_one({"id": id_test}, {"_id": 0})
-
-
 def send_tests_cases(tests: list, db):
     """
     Сохранение тестов в монго
